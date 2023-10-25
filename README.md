@@ -1,13 +1,19 @@
 # dao_mock_junit
+Resumo do projeto:
 
-Este conjunto de códigos representa um projeto simplificado de exemplo que ilustra o uso de interfaces e classes em um sistema fictício de gerenciamento de clientes e contratos. A estrutura do projeto é dividida em pacotes que organizam as classes de acordo com suas responsabilidades. Vamos analisar cada parte:
-ClienteService (no pacote com.pazzini.service): Esta classe representa um serviço que opera sobre uma entidade de cliente. Ela é responsável por interagir com um objeto IClienteDao para realizar operações de salvar clientes no sistema.
-ContratoService (no pacote com.pazzini.service): Similar à classe ClienteService, esta classe lida com operações de contrato e interage com a interface IContratoDao.
-IContratoService e IContratoDao (no pacote com.pazzini.service e com.pazzini.dao, respectivamente): Essas interfaces definem os métodos esperados para serviços e DAOs (objetos de acesso a dados) relacionados a contratos.
-Cliente e TesteCliente (no pacote com.pazzini): Essas classes são estruturas simples que representam clientes e informações de teste relacionadas a clientes.
-ClienteDao e ClienteDaoMock (no pacote com.pazzini.dao): Essas classes representam implementações de acesso a dados para entidades de cliente. O ClienteDao lança exceções, enquanto o ClienteDaoMock retorna null.
-ContratoDao e ContratoDaoMock (no pacote com.pazzini.dao e com.pazzini.dao.mock, respectivamente): Semelhante ao ClienteDao, essas classes lidam com operações de acesso a dados para contratos. O ContratoDao lança exceções, enquanto o ContratoDaoMock possui métodos vazios.
-Este projeto é uma simulação de um sistema de gerenciamento de clientes e contratos, onde as classes de serviço interagem com as classes de acesso a dados (DAOs) por meio de interfaces. A separação em interfaces e implementações permite a fácil substituição de implementações reais por mocks ou outras implementações para fins de testes e simulações.
+Este projeto consiste em um sistema de gerenciamento de contratos, com classes relacionadas à persistência e manipulação de dados de contratos.
+
+A classe Contrato representa um contrato e possui atributos como nome do cliente, ano de validade e ID do contrato. Ela também possui métodos getters e setters para acessar e definir os valores desses atributos.
+
+A interface IContratoDAO define os métodos que devem ser implementados por qualquer classe que represente um DAO (Data Access Object) para contratos. Esses métodos incluem salvar, buscar, excluir e atualizar contrato.
+
+A classe ContratoDAO é uma implementação real de IContratoDAO e é responsável por acessar e manipular os dados dos contratos em um banco de dados. Já a classe ContratoDAOMock é uma implementação de teste que utiliza uma lista de contratos em memória.
+
+A classe ContratoService é responsável por fornecer serviços relacionados a contratos. Ela recebe uma instância de IContratoDAO no construtor e utiliza esse DAO para realizar as operações de persistência e manipulação de contratos.
+
+O projeto também inclui uma classe de teste ContratoServiceTest, que utiliza o framework JUnit para testar os métodos da classe ContratoService. Os testes incluem verificar se o método de salvar retorna o resultado esperado, se o método de buscar retorna o contrato correto e se o método de salvar lança uma exceção quando utilizado com a implementação real do DAO.
+
+Em resumo, este projeto implementa um sistema básico de gerenciamento de contratos, com classes para representar contratos, persistir e manipular os dados desses contratos, e serviços para fornecer funcionalidades relacionadas a contratos. Os testes garantem o correto funcionamento dos métodos implementados.
 
 ## Skills utilizadas:
 <div style="display: inline_block"><br>
